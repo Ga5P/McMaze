@@ -55,7 +55,9 @@ while continue_game:
         MAZE.generate()
         MAZE.display(window)
 
-#        MG = Hero(Hero, maze)
+        #MG = pygame.image.load("images/hero.png")
+        MG = Hero("images/hero.png", MAZE)
+        
         for event in pygame.event.get():
             if event.type == KEYDOWN:
                 if event.key == K_RIGHT:
@@ -67,5 +69,9 @@ while continue_game:
                 elif event.key == K_UP:
                     MG.move("up")
 
-#        window.blit(background, (0,0))
-#        MAZE.display(window)
+        window.blit(background, (0,0))
+        MAZE.display(window)
+        #window.blit(MG.move, MG.x, MG.y)
+        
+        #pygame.Surface.blit(MG.x, MG.y)
+        pygame.display.flip()
