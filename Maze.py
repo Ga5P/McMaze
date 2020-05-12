@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pygame
+import random
 
 from pygame.locals import *
 from Constantes import *
@@ -29,14 +30,15 @@ class Maze: # class allowing maze creation
                 maze_structure.append(maze_line)
 
             self.structure = maze_structure
-                        
 
     def display(self, window):
 
 
-        #start = pygame.image.load(start_image).convert()
         wall = pygame.image.load(wall_image).convert()
         guard = pygame.image.load(guard_image).convert_alpha()
+        needle = pygame.image.load(needle_image).convert_alpha()
+        tube = pygame.image.load(tube_image).convert_alpha()
+        ether = pygame.image.load(ether_image).convert_alpha()
 
         line_num = 0
         for line in self.structure:
@@ -48,15 +50,22 @@ class Maze: # class allowing maze creation
                 y = line_num * sprite_size
                 #x = case_num
                 #y = line_num
-                
+                 
                 if sprite == 'w':
                     window.blit(wall, (x,y))
 
-                #elif sprite == 's':
-                    #window.blit(start, (x,y))
-
+                elif sprite == 'N':
+                    window.blit(needle, (x,y))
+                    
+                elif sprite == 'T':
+                    window.blit(tube, (x,y))
+                    
+                elif sprite == 'E':
+                    window.blit(ether, (x,y))
+                    
                 elif sprite == 'g':
                     window.blit(guard, (x,y))
+                    
 
                 case_num += 1
             line_num += 1

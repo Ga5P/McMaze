@@ -31,3 +31,11 @@ needle_image = "images/needle.png"
 tube_image = "images/tube.png"
 
 ether_image = "images/ether.png"
+
+# Objects to find
+
+needle = "N"
+
+tube = "T"
+
+ether = "E"
